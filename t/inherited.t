@@ -1,6 +1,6 @@
 # -*-perl-*-
 
-# $Id: inherited.t,v 1.3 2002/05/28 13:07:44 cwinters Exp $
+# $Id: inherited.t,v 1.4 2003/11/11 04:40:30 cwinters Exp $
 
 use strict;
 use lib qw( ./t ./lib );
@@ -53,7 +53,7 @@ is( $observations[6], "Observation B from [Baz]", "Catch notification from child
 is( $observations[7], "Observation A from [Baz]", "Catch parent notification from child (after object add)" );
 
 
-is( $baz_b->delete_observers, 1, 'Delete object observers' );
-is( $baz_c->delete_observers, 0, 'Delete non-existent object observers' );
-is( Baz->delete_observers, 1, 'Delete child observers' );
-is( Foo->delete_observers, 1, 'Delete parent observers' );
+is( $baz_b->delete_all_observers, 1, 'Delete object observers' );
+is( $baz_c->delete_all_observers, 0, 'Delete non-existent object observers' );
+is( Baz->delete_all_observers, 1, 'Delete child observers' );
+is( Foo->delete_all_observers, 1, 'Delete parent observers' );
