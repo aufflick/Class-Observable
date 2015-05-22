@@ -125,6 +125,9 @@ sub get_observers {
                          "and its parents" );
     push @observers, $class->_obs_get_observers_scoped,
                      $class->_obs_get_parent_observers;
+
+    @observers = grep { defined $_ } @observers;
+    
     $item->observer_log( "Found observers '", join( "', '", @observers ), "'" );
     return @observers;
 }
